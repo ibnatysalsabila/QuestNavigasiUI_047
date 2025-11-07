@@ -66,3 +66,16 @@ fun FromIsian(
                     .padding(all = 20.dp)
                     .width(width = 250.dp), thickness = Thickness, color = Color.Red
             )
+            Row {
+                jenisK.forEach { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = false,
+                            onClick = { item }
+                        )
+                        Text(text = item)
+                    }
+                }
+
+            }
+
