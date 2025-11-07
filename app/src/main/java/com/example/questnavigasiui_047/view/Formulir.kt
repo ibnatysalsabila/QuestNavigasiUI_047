@@ -21,7 +21,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -94,3 +93,13 @@ fun FromIsian(
                 onValueChange = {},
             )
             Spacer(modifier = Modifier.height(height = 30.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(fraction = 1f)
+                    .padding(all = 25.dp),
+                onClick = OnSubmitBtnClick
+            ) {
+                Text(text = stringResource(id = R.string.submit))
+            }
+        }
+    }
+}
