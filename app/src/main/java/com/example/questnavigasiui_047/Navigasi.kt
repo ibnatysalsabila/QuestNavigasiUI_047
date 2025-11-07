@@ -8,24 +8,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.questnavigasiui_047.view.FormIsian
 import com.example.questnavigasiui_047.view.TampilData
 
 enum class Navigasi{
     Formulirku,
     Detail
 }
-
 @Composable
 fun DataApp(
     navController: NavHostController = rememberNavController()
 ){
-    Scaffold { isiRuang ->
+    Scaffold { isiRuang->
         NavHost(
             navController = navController,
             startDestination = Navigasi.Formulirku.name,
 
-            modifier = Modifier.padding(paddingValues = isiRuang)){
-
+            modifier = Modifier.padding(paddingValues = isiRuang)) {
             composable(route = Navigasi.Formulirku.name) {
                 FormIsian(
                     OnSubmitBtnClick = {
@@ -36,7 +35,7 @@ fun DataApp(
             composable(route = Navigasi.Detail.name) {
                 TampilData(
                     onBackBtnClick = {
-                        cancelAndBackToFormulirKu(navController)
+                        cancelAndBackToFormulir(navController)
                     }
                 )
             }
@@ -44,11 +43,8 @@ fun DataApp(
     }
 }
 
-
-
-
-private fun cancelAndBackToFormulirKu(
+private fun cancelAndBackToFormulir(
     navController: NavHostController
-) {
+){
     navController.popBackStack(route = Navigasi.Formulirku.name, inclusive = false)
 }
